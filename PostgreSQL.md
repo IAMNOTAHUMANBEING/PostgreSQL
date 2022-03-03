@@ -1,4 +1,4 @@
-(강의: https://www.youtube.com/watch?v=qw--VYLpxG4)
+(강의주소: https://www.youtube.com/watch?v=qw--VYLpxG4)
 
 실행순서: FROM -> WHERE -> GROUP BY -> SELECT -> DISTINCT -> ORDER BY -> LIMIT 
 SQL 파일 불러오기: \i [파일주소] (같은 테이블명으로 수정하고 다시 불러와도 덮어쓰기 안됨 삭제하고 새로 불러와야함)
