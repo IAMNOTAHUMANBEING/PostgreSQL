@@ -7,7 +7,7 @@ CREATE: CREATE TABLE [테이블명] ([컬럼명1] [데이터 종류] [NULL 여�
 DROP: DROP TABLE [테이블명];  
 INSERT: INSERT INTO [테이블명] ([컬럼명1], [컬럼명2], ...) VALUES ([컬럼에 들어갈 데이터 종류에 맞게1], ...), ([컬럼에 들어갈 데이터 종류에 맞게2], ...);  
 SELECT: SELECT <DISTINCT> [컬럼명] FROM [테이블명] <WHERE [조건식]> <OFFSET [~까지 조회X]> <LIMIT [원하는 갯수]>  <ORDER BY [정렬 기준 컬럼] [ASC/ DESC]> ;  
-조건식: 반복될 때 ex. WHERE country IN ('China', 'Brazil', 'France')  
+조건식 반복될 때 ex. WHERE country IN ('China', 'Brazil', 'France')  
 BETWEEN: 범위지정 ex. BETWEEN DATE '2000-01-01' AND '2015-01-01';  
 Like: ex. WHERE email LIKE '________(글자 갯수)@%(임의의 문자열)';  
 iLike: Like와 기능은 똑같고 대소문자를 구별하지 않음.  
@@ -40,7 +40,10 @@ CREATE TABLE [참조될 테이블] ( [참조될 컬럼] NOT NULL PRIMARY KEY)
 INNER JOIN: 공통적인 부분만 SEELCT, SELECT [컬럼명1], ... FROM [테이블명] JOIN [다른 테이블] ON [결합기준]  
 LEFT JOIN: 조인기준 왼쪽에 있는거 다 SELECT 됨, SELECT [컬럼명1], ... FROM [테이블명] LEFT JOIN [다른 테이블] ON [결합기준]  
 RIGHT JOIN: 조인기준 오른쪽에 있는거 다 SELECT됨, SELECT [컬럼명1], ... FROM [테이블명] RIGHT JOIN [다른 테이블] ON [결합기준]  
-조인할 두 테이블의 결합 기준이 같은 컬럼명을 가지고 있다면 ON[결합기준] 대신 USING([컬럼명])을 이용하면 중복제거해서 조인해줌   
+조인할 두 테이블의 결합 기준이 같은 컬럼명을 가지고 있다면 ON[결합기준] 대신 USING([컬럼명])을 이용하면 중복제거해서 조인해줌 
+[ON vs WHERE]
+ON : JOIN 을 하기 전 필터링을 한다 (=ON 조건으로 필터링이 된 레코들간 JOIN이 이뤄진다)
+WHERE : JOIN 을 한 후 필터링을 한다 (=JOIN을 한 결과에서 WHERE 조건절로 필터링이 이뤄진다)
 Exporting to CSV: \COPY ([SELECT 레코드]) TO 'CSV 파일 주소' DELIMETER ',' CSV HEADER;  
 Serial & Sequences: SELECT * FROM person_id_seq; 로 serial테이블 불러올 수 있음 SELECT nextval('person_id_seq'::regclass); 명령할 때마다 nextval이 1씩 올라가면서 insert 될 레코드의 id를 정해주는 값이 바뀜  
 ALTER SEQUENCE person_id_seq RESTART WITH [숫자];로 재지정 가능  
